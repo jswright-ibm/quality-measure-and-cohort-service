@@ -35,3 +35,10 @@ hs_err_pid*
 
 # Maven
 .flattened-pom.xml
+
+## todo: dan remove
+tests/docker/Env.txt
+cloudInit.sh
+fhir-server.cer
+key_file
+trustStore.pkcs12
