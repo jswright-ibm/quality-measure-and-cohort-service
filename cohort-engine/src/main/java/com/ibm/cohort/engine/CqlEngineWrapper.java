@@ -11,8 +11,8 @@ import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
-
 import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.tuple.Pair;
@@ -177,9 +177,11 @@ public class CqlEngineWrapper {
 	 * @param callback       callback function to be evaluated once per context per
 	 *                       executed define (required).
 	 */
-	protected void evaluateExpressionByExpression(final String libraryName, final String libraryVersion,
-			final Map<String, Object> parameters, final Set<String> expressions, final List<String> contextIds,
-			final EvaluationResultCallback callback) throws Exception {
+	protected void evaluateExpressionByExpression(
+	        final Optional<Integer> maxPatients,
+            final String libraryName, final String libraryVersion,
+            final Map<String, Object> parameters, final Set<String> expressions, final List<String> contextIds,
+            final EvaluationResultCallback callback) {
 		if (this.libraryLoader == null || this.dataServerClient == null || this.terminologyServerClient == null
 				|| this.measureServerClient == null) {
 			throw new IllegalArgumentException(

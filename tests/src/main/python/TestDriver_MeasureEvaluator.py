@@ -11,6 +11,7 @@ import json
 import re
 
 num=int(os.environ['PERF_EXECUTION_COUNT']) # number of times to execute a query to generate an average.
+maxPatients=int(os.environ['MAX_PATIENTS'])
 engineWrapper='' # Used to hold reference to the engine once it has been fired up.
 currentDir=os.getcwd()
 baseDir = currentDir + '/'
@@ -63,7 +64,7 @@ class Test(object):
         cohortEngine = baseDir+os.environ['COHORT_ENGINE']
         javabridge.start_vm(args=["-Xms512M", "-Xmx1G", "-Djavax.net.ssl.trustStore="+os.environ['TRUSTSTORE'], "-Djavax.net.ssl.trustStorePassword="+os.environ['TRUSTSTORE_PASSWORD'], "-Djavax.net.ssl.trustStoreType="+os.environ['TRUSTSTORE_TYPE']], run_headless=True, class_path=javabridge.JARS + [cohortEngine, testWrapper]) # Start the JVM with modified classpath.
         engineWrapper = javabridge.JClassWrapper("com.ibm.cohort.engine.test.TestWrapper")() # Get an instance of the test wrapper.
-        engineWrapper.warm(baseDir+os.environ['DATA_FHIR_SERVER_DETAILS'],baseDir+os.environ['TERM_FHIR_SERVER_DETAILS'],libraries, testLibrary, "d6587935-b9e4-188d-7e9f-a8dc909f4216") # Warm up the JV and submit a noise query.
+        engineWrapper.warm(baseDir+os.environ['DATA_FHIR_SERVER_DETAILS'],baseDir+os.environ['TERM_FHIR_SERVER_DETAILS'],libraries, testLibrary, "d6587935-b9e4-188d-7e9f-a8dc909f4216", maxPatients) # Warm up the JV and submit a noise query.
 
     def teardown_class(self):
         javabridge.kill_vm() # The JVM must die.

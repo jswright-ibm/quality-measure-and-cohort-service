@@ -16,6 +16,7 @@ import java.nio.file.Paths;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.zip.ZipInputStream;
 
@@ -66,9 +67,15 @@ public class CohortCLI extends BaseCLI {
 				"--context-id" }, description = "Unique ID for one or more context objects (e.g. Patient IDs)", required = true)
 		private List<String> contextIds;
 
+
 		@Parameter(names = { "-p",
 				"--parameters" }, description = "Parameter value(s) in format name:type:value where value can contain additional parameterized elements separated by comma. Multiple parameters must be specified as multiple -p options", splitter = NoSplittingSplitter.class, required = false)
 		private List<String> parameters;
+
+		// todo: dan 
+
+		@Parameter(names = { "--max-patients" }, description = "Maximum number of patient", required = false)
+		private Optional<Integer> maxPatients;
 
 		@Parameter(names = { "-s",
 				"--source-format" }, description = "Indicates which files in the file source should be processed", required = false)
@@ -140,7 +147,8 @@ public class CohortCLI extends BaseCLI {
 				parameters = parseParameterArguments(arguments.parameters);
 			}
 			
-			wrapper.evaluate(arguments.libraryName, arguments.libraryVersion, parameters, arguments.expressions,
+			// todo create evaluation object
+			wrapper.evaluate(arguments.maxPatients, arguments.libraryName, arguments.libraryVersion, parameters, arguments.expressions,
 					arguments.contextIds, new EvaluationResultCallback() {
 
 						@Override

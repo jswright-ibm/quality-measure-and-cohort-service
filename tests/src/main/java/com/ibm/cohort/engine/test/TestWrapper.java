@@ -31,9 +31,9 @@ public class TestWrapper {
 	 * @return
 	 * @throws Exception
 	 */
-    public String warm(String d, String t, String f, String l, String c) throws Exception
+    public String warm(String d, String t, String f, String l, String c, String maxPatients) throws Exception
     {
-        String[] args = new String[] {"-d", d, "-t", t, "-f", f, "-l", l, "-c", c};
+        String[] args = new String[] {"-d", d, "-t", t, "-f", f, "-l", l, "-c", c, "--max-patients", maxPatients};
         byteStream = new ByteArrayOutputStream();
         ps = new PrintStream(byteStream, true, StandardCharsets.UTF_8.name());
         engine = cli.runWithArgs(args, ps);

@@ -22,6 +22,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -332,7 +333,8 @@ public class CqlEngineWrapperTest extends BaseFhirTest {
 		CqlEngineWrapper wrapper = setupTestFor(patient, "cql/basic/test.xml");
 
 		final AtomicInteger count = new AtomicInteger(0);
-		wrapper.evaluateExpressionByExpression("Test", null, /* parameters= */null, null, Arrays.asList("123"),
+		wrapper.evaluateExpressionByExpression(
+                Optional.empty(), "Test", null, /* parameters= */null, null, Arrays.asList("123"),
 				new ProxyingEvaluationResultCallback((p, e, r) -> {
 					count.incrementAndGet();
 					System.out.println("Expression: " + e);
@@ -377,7 +379,8 @@ public class CqlEngineWrapperTest extends BaseFhirTest {
 
 		final AtomicBoolean found = new AtomicBoolean(false);
 		final AtomicInteger count = new AtomicInteger(0);
-		wrapper.evaluateExpressionByExpression("Test", null, parameters, null, Arrays.asList("123"), new ProxyingEvaluationResultCallback((p, e, r) -> {
+		wrapper.evaluateExpressionByExpression(Optional.empty(),
+                                               "Test", null, parameters, null, Arrays.asList("123"), new ProxyingEvaluationResultCallback((p, e, r) -> {
 			count.incrementAndGet();
 			if (e.equals("ParamMaxAge")) {
 				assertEquals("Unexpected value for expression result", "40", r);
