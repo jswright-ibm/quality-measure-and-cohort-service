@@ -21,6 +21,7 @@ import javax.ws.rs.core.Response.ResponseBuilder;
 
 import com.ibm.cohort.engine.api.service.model.EvaluateMeasureResults;
 import com.ibm.cohort.engine.api.service.model.EvaluateMeasuresStatus;
+import com.ibm.cohort.engine.api.service.model.FakeResult;
 import com.ibm.cohort.engine.api.service.model.MeasuresEvaluation;
 import com.ibm.watson.common.service.base.ServiceBaseConstants;
 
@@ -132,5 +133,14 @@ public class CohortEngineRestHandler {
 		return Response.ok(status).build();
 	}
 
+	@POST
+	@Path("/fakeservice/{aParam}")
+	@Produces({ "application/json" })
+	@ApiOperation(value = "Echoes a param", notes = "for testing only", response = FakeResult.class)
+	public Response getAParam(@ApiParam(value = "Param to echo", required = true) @PathParam("aParam") String aParam) {
+		FakeResult result = new FakeResult(aParam);
+		return Response.ok(result).build();
+	}
+	
 }
 
