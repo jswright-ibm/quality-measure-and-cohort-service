@@ -1,0 +1,11 @@
+{
+    "tests": {
+        "Colorectal cancer screening measure" : {
+            "jsonMeasureConfigurationFile": null,
+            "resource": "wh-cohort-Colorectal-Cancer-Screening-Simple-1.0.0",
+            "params": null,
+            "targets": ["001b0e56-fcbd-1de9-83e9-def986fb5382"],
+            "response": "",
+            "measureServer": "cohort-cli/config/local-ibm-fhir.json"
+        }
+}
