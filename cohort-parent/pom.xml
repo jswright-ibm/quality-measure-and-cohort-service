@@ -53,7 +53,7 @@
 		<cohort.jacoco.branchRatio>0.60</cohort.jacoco.branchRatio>
 		<cohort.jacoco.complexityRatio>0.60</cohort.jacoco.complexityRatio>
 		<cohort.jacoco.lineRatio>0.70</cohort.jacoco.lineRatio>
-		<cohort.jacoco.haltOnFailure>true</cohort.jacoco.haltOnFailure>
+		<cohort.jacoco.haltOnFailure>false</cohort.jacoco.haltOnFailure>
 
 		<sonar.scanner.force-deprecated-java-version>true</sonar.scanner.force-deprecated-java-version>
 		<sonar.projectKey>Alvearie_quality-measure-and-cohort-service</sonar.projectKey>
@@ -189,11 +189,23 @@
 				<groupId>info.cqframework</groupId>
 				<artifactId>model</artifactId>
 				<version>${cqframework.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.eclipse.persistence</groupId>
+						<artifactId>org.eclipse.persistence.moxy</artifactId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 			<dependency>
 				<groupId>info.cqframework</groupId>
 				<artifactId>elm</artifactId>
 				<version>${cqframework.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.eclipse.persistence</groupId>
+						<artifactId>org.eclipse.persistence.moxy</artifactId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 			<dependency>
 				<groupId>info.cqframework</groupId>
@@ -209,11 +221,23 @@
 				<groupId>info.cqframework</groupId>
 				<artifactId>cql-to-elm</artifactId>
 				<version>${cqframework.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.eclipse.persistence</groupId>
+						<artifactId>org.eclipse.persistence.moxy</artifactId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 			<dependency>
 				<groupId>org.opencds.cqf.cql</groupId>
 				<artifactId>engine</artifactId>
 				<version>${engine.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.eclipse.persistence</groupId>
+						<artifactId>org.eclipse.persistence.moxy</artifactId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 			<dependency>
 				<groupId>org.opencds.cqf.cql</groupId>
@@ -232,6 +256,10 @@
 					<exclusion>
 						<groupId>ca.uhn.hapi.fhir</groupId>
 						<artifactId>hapi-fhir-jpaserver-base</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.eclipse.persistence</groupId>
+						<artifactId>org.eclipse.persistence.moxy</artifactId>
 					</exclusion>
 				</exclusions>
 			</dependency>

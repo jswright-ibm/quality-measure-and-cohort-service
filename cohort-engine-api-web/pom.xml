@@ -122,11 +122,11 @@
 	</build>
 
 	<dependencies>
-		<dependency>
-			<groupId>org.mitre.bonnie</groupId>
-			<artifactId>cqlTranslationServer</artifactId>
-			<version>1.4.9</version>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.mitre.bonnie</groupId>-->
+<!--			<artifactId>cqlTranslationServer</artifactId>-->
+<!--			<version>1.4.9</version>-->
+<!--		</dependency>-->
 		<dependency>
 			<groupId>com.ibm.cohort</groupId>
 			<artifactId>cohort-engine</artifactId>
@@ -197,6 +197,11 @@
 			<artifactId>powermock-module-junit4</artifactId>
 			<version>2.0.9</version>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.jersey.contribs</groupId>
+			<artifactId>jersey-multipart</artifactId>
+			<version>1.19</version>
 		</dependency>
 	</dependencies>
 </project>

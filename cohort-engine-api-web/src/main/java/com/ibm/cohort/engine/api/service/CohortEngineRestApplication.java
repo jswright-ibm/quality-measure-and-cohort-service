@@ -10,7 +10,6 @@ import java.util.Set;
 
 import javax.ws.rs.ApplicationPath;
 
-import org.mitre.bonnie.cqlTranslationServer.TranslationResource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
