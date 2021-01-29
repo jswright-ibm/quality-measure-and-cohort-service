@@ -1009,4 +1009,5 @@
             "response": "",
             "measureServer": "cohort-cli/config/local-ibm-fhir.json"
         }
+  }
 }
