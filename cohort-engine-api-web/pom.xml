@@ -124,6 +124,11 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.ibm.cohort</groupId>
+			<artifactId>cqlTranslationServer</artifactId>
+			<version>1.5.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.ibm.cohort</groupId>
 			<artifactId>cohort-engine</artifactId>
 			<version>${project.version}</version>
 		</dependency>

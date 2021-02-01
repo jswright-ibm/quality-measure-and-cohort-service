@@ -11,6 +11,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.junit.Test;
+import org.mitre.bonnie.cqlTranslationServer.TranslationResource;
 
 import com.ibm.watson.common.service.base.ServiceExceptionMapper;
 import com.ibm.watson.solutions.api.rest.CustomSwaggerApiListingResource2;
@@ -37,6 +38,7 @@ public class CohortEngineRestApplicationTest {
 		expectedClasses.add(CustomSwaggerApiListingResource2.class);
 		expectedClasses.add(SwaggerSerializers.class);
 		expectedClasses.add(ServiceExceptionMapper.class);
+		expectedClasses.add(TranslationResource.class);
 		assertEquals(expectedClasses, actualClasses);
 	}
 

@@ -10,6 +10,7 @@ import java.util.Set;
 
 import javax.ws.rs.ApplicationPath;
 
+import org.mitre.bonnie.cqlTranslationServer.TranslationResource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -46,6 +47,7 @@ public class CohortEngineRestApplication extends ServiceApplication {
 		// static member variable.
 		classes.add( CohortEngineRestStatusHandler.class );
 		classes.add( CohortEngineRestHandler.class );
+		classes.add( TranslationResource.class );
 
 		// Uncomment the following lines for chainable services that will use the ContainerGroup model.
 		// You will also need to add either service-container-model-utils-v1.9 or service-container-model-utils-v2.4 to your pom file
