@@ -122,11 +122,11 @@
 	</build>
 
 	<dependencies>
-		<dependency>
-			<groupId>com.ibm.cohort</groupId>
-			<artifactId>cqlTranslationServer</artifactId>
-			<version>1.5.1-SNAPSHOT</version>
-		</dependency>
+        <dependency>
+            <groupId>com.sargent.test.fake</groupId>
+            <artifactId>cql-translation-server</artifactId>
+            <version>1.5.1-SNAPSHOT</version>
+        </dependency>
 		<dependency>
 			<groupId>com.ibm.cohort</groupId>
 			<artifactId>cohort-engine</artifactId>
