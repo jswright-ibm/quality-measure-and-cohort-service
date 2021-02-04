@@ -123,9 +123,9 @@
 
 	<dependencies>
         <dependency>
-            <groupId>com.sargent.test.fake</groupId>
+            <groupId>com.ibm.cohort</groupId>
             <artifactId>cql-translation-server</artifactId>
-            <version>1.5.1-SNAPSHOT</version>
+            <version>1.5.1</version>
         </dependency>
 		<dependency>
 			<groupId>com.ibm.cohort</groupId>
