@@ -7,6 +7,9 @@
 package com.ibm.cohort.engine;
 
 import ca.uhn.fhir.context.FhirContext;
+import com.ibm.cohort.fhir.client.config.DefaultFhirClientBuilder;
+import com.ibm.cohort.fhir.client.config.FhirClientBuilder;
+import com.ibm.cohort.fhir.client.config.FhirClientBuilderFactory;
 
 /**
  * An implementation of FhirClientBuilderFactory that ignores SSL CA and hostname verification.

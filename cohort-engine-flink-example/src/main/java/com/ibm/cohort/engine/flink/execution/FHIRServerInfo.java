@@ -6,7 +6,7 @@
 
 package com.ibm.cohort.engine.flink.execution;
 
-import com.ibm.cohort.engine.IBMFhirServerConfig;
+import com.ibm.cohort.fhir.client.config.IBMFhirServerConfig;
 
 import java.io.Serializable;
 
