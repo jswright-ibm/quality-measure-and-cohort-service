@@ -66,7 +66,7 @@ LABEL maintainer="IBM Quality Measure and Cohort Service Team" \
       description="Quality Measure and Cohort Service available via REST API"
 
 ENV WLP_HOME=/opt/ibm/wlp \
-    SERVER_NAME=myServer \
+    SERVER_NAME=cohortServer \
     ALVEARIE_HOME=/opt/alvearie \
     COHORT_DIST_SOLUTION=/app/cohortSolutionDistribution \
     COHORT_TEST_SOLUTION=/app/cohortTestDistribution \
@@ -102,7 +102,7 @@ COPY --from=builder $ANT_HOME $ANT_HOME
 ENV PATH="$JAVA_HOME/jre/bin:${PATH}:$ANT_HOME/bin"
 
 # Copy our startup script into the installed Liberty bin
-COPY --from=builder $COHORT_DIST_SOLUTION/solution/bin/runServer.sh $WLP_HOME/bin/
+COPY --from=builder $COHORT_DIST_SOLUTION/solution/bin/*.sh $WLP_HOME/bin/
 
 # Change to root so we can do chmods to our WH user
 USER root
@@ -125,4 +125,4 @@ USER whuser
 # Expose the servers HTTP and HTTPS ports.  NOTE:  must match with hardcoded testcase stage scripts, Helm charts (values.yaml), server.xml
 EXPOSE 9080 9443
 
-ENTRYPOINT $WLP_HOME/bin/runServer.sh
+ENTRYPOINT $WLP_HOME/bin/entrypoint.sh
