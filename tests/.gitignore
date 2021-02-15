@@ -3,3 +3,4 @@ __pycache__
 
 results
 scenarios/202*/
+src/main/resources/config/fhirconfig.json
