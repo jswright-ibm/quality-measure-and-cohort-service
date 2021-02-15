@@ -103,24 +103,7 @@ public class MeasureEvaluator {
 	 * @return List of Measure Reports
 	 */
 	public List<MeasureReport> evaluatePatientMeasures(String patientId, List<MeasureContext> measureContexts) {
-		List<MeasureReport> measureReports = new ArrayList<>();
-		MeasureReport measureReport = null;
-		boolean inInitialPopulation;
-		for (MeasureContext measureContext: measureContexts) {
-			inInitialPopulation = false;
-			measureReport = evaluatePatientMeasure(measureContext, patientId, new MeasureEvidenceOptions());
-			if (measureReport != null) {
-				for (MeasureReport.MeasureReportGroupComponent group : measureReport.getGroup()) {
-					if (CDMMeasureEvaluation.StandardReportResults.fromMeasureReportGroup(group).inInitialPopulation()) {
-						inInitialPopulation = true;
-					}
-				}
-			}
-			if (inInitialPopulation) {
-				measureReports.add(measureReport);
-			}
-		}
-		return measureReports;
+		return evaluatePatientMeasures(patientId, measureContexts, new MeasureEvidenceOptions());
 	}
 
 	public MeasureReport evaluatePatientMeasure(MeasureContext context, String patientId, MeasureEvidenceOptions evidenceOptions) {
@@ -187,11 +170,7 @@ public class MeasureEvaluator {
 		}
 
 		CDMMeasureEvaluation evaluation = new CDMMeasureEvaluation(seed.getDataProvider(), seed.getMeasurementPeriod());
-		MeasureReport measureReport = evaluation.evaluatePatientMeasure(measure, seed.getContext(), patientId);
-		
-		if(!evidenceOptions.isIncludeEvaluatedResources()) {
-			measureReport.setEvaluatedResource(Lists.newArrayList());
-		}
+		MeasureReport measureReport = evaluation.evaluatePatientMeasure(measure, seed.getContext(), patientId, evidenceOptions);
 		
 		return measureReport;
 	}
