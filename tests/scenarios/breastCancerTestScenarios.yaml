@@ -3,8 +3,8 @@ settings:
     LIBRARY_PATH: tests/src/main/resources/libraries/breast_cancer_screeningwith_snome_dcodes_v1_0_0_cql.zip
     JAR: cohort-cli/target/cohort-cli-0.0.1-SNAPSHOT-shaded.jar
     TESTS_JSON: tests/src/main/resources/breastCancerTestScenarios.json
-    DATA_FHIR_SERVER_DETAILS: tests/src/main/resources/config/fhirconfig.json
-    TERM_FHIR_SERVER_DETAILS: tests/src/main/resources/config/fhirconfig.json
+    DATA_FHIR_SERVER_DETAILS: tests/src/main/resources/config/fhirconfig-fvttest-tenant.json
+    TERM_FHIR_SERVER_DETAILS: tests/src/main/resources/config/fhirconfig-fvttest-tenant.json
 
 execution:
 - executor: pytest
@@ -17,4 +17,4 @@ scenarios:
 
 reporting:
 - module: junit-xml
-  filename: /bzt-configs/tests/results/sampleTest.xml
+  filename: /bzt-configs/tests/results/breastCancerTestScenarios.xml
