@@ -14,7 +14,7 @@
             "params": null,
             "targets": ["a1637d9d-8de4-b8b8-be2e-94118c7f4d71"],
             "response": "Evaluating: a1637d9d-8de4-b8b8-be2e-94118c7f4d71\nResult for Measure/wh-cohort-Over-the-Hill-1.0.0\nPopulation: initial-population = 1\n---",
-            "measureServer": "config/fhirconfig-default-tenant.json"
+            "measureServer": "tests/src/main/resources/config/fhirconfig-default-tenant.json"
         },
         "Colorectal and over the hill measures" : {
             "jsonMeasureConfigurationFile": "tests/src/main/resources/measure-parameters/colorectal-screening-and-over-the-hill.json",
@@ -22,7 +22,7 @@
             "params": null,
             "targets": ["a1637d9d-8de4-b8b8-be2e-94118c7f4d71", "01268c61-8f89-6d50-4414-9e50d367804d"],
             "response": "Evaluating: a1637d9d-8de4-b8b8-be2e-94118c7f4d71\nResult for Measure/wh-cohort-Over-the-Hill-1.0.0\nPopulation: initial-population = 1\n---\nResult for Measure/wh-cohort-Colorectal-Cancer-Screening-Simple-1.0.0\nPopulation: initial-population = 1\n---\nEvaluating: 01268c61-8f89-6d50-4414-9e50d367804d\nResult for Measure/wh-cohort-Over-the-Hill-1.0.0\nPopulation: initial-population = 1\n---",
-            "measureServer": "config/fhirconfig-default-tenant.json"
+            "measureServer": "tests/src/main/resources/config/fhirconfig-default-tenant.json"
         },
         "Over the Hill parameters test" : {
             "jsonMeasureConfigurationFile": "tests/src/main/resources/measure-parameters/over-the-hill-with-parameters.json",
@@ -30,7 +30,7 @@
             "params": null,
             "targets": ["a1637d9d-8de4-b8b8-be2e-94118c7f4d71"],
             "response": "Evaluating: a1637d9d-8de4-b8b8-be2e-94118c7f4d71\nResult for Measure/wh-cohort-Over-the-Hill-1.0.0\nPopulation: initial-population = 1\n---\nResult for Measure/wh-cohort-Over-the-Hill-1.0.0\nPopulation: initial-population = 1\n---",
-            "measureServer": "config/fhirconfig-default-tenant.json"
+            "measureServer": "tests/src/main/resources/config/fhirconfig-default-tenant.json"
         },
         "Over the Hill parameters test - illegalArgumentException received when both -j and -r args not provided" : {
             "jsonMeasureConfigurationFile": null,
@@ -38,7 +38,7 @@
             "params": null,
             "targets": ["a1637d9d-8de4-b8b8-be2e-94118c7f4d71"],
             "response": "Exception in thread \"main\" java.lang.IllegalArgumentException: Must specify exactly one of -r or -j options",
-            "measureServer": "config/fhirconfig-default-tenant.json",
+            "measureServer": "tests/src/main/resources/config/fhirconfig-default-tenant.json",
             "regEx": true
         },
         "Over the Hill parameters test - illegalArgumentException received when -j specified with path to file that does not exist" : {
@@ -56,7 +56,7 @@
             "params": null,
             "targets": ["a1637d9d-8de4-b8b8-be2e-94118c7f4d71"],
             "response": "Exception in thread \"main\" com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field \"starttime\"",
-            "measureServer": "config/fhirconfig-default-tenant.json",
+            "measureServer": "tests/src/main/resources/config/fhirconfig-default-tenant.json",
             "regEx": true
         },
         "Over the Hill parameters test - Empty measureConfigurations object" : {
@@ -65,7 +65,7 @@
             "params": null,
             "targets": ["a1637d9d-8de4-b8b8-be2e-94118c7f4d71"],
             "response": "Exception in thread \"main\" java.lang.IllegalArgumentException: Invalid measure parameter file: Exactly one of id or identifier with a value must be provided for each measure.",
-            "measureServer": "config/fhirconfig-default-tenant.json",
+            "measureServer": "tests/src/main/resources/config/fhirconfig-default-tenant.json",
             "regEx": true
         },
         "Empty measureId entry in measureConfigurations list" : {
@@ -74,7 +74,7 @@
             "params": null,
             "targets": ["a1637d9d-8de4-b8b8-be2e-94118c7f4d71", "01268c61-8f89-6d50-4414-9e50d367804d"],
             "response": "Exception in thread \"main\" java.lang.IllegalArgumentException: Invalid measure parameter file: Exactly one of id or identifier with a value must be provided for each measure.",
-            "measureServer": "config/fhirconfig-default-tenant.json",
+            "measureServer": "tests/src/main/resources/config/fhirconfig-default-tenant.json",
             "regEx": true
         },
         "Over the Hill parameters test - Interval parameter missing a required field" : {
@@ -83,7 +83,7 @@
             "params": null,
             "targets": ["a1637d9d-8de4-b8b8-be2e-94118c7f4d71"],
             "response": "Exception in thread \"main\" java.lang.IllegalArgumentException: Invalid measure parameter file: Must provide \"subtype\", \"start\",  and \"end\" for each measure parameter with type \"interval\".",
-            "measureServer": "config/fhirconfig-default-tenant.json",
+            "measureServer": "tests/src/main/resources/config/fhirconfig-default-tenant.json",
             "regEx": true
         },
         "Over the Hill parameters test - Unsupported type parameter" : {
@@ -92,7 +92,7 @@
             "params": null,
             "targets": ["a1637d9d-8de4-b8b8-be2e-94118c7f4d71"],
             "response": "Exception in thread \"main\" java.lang.IllegalArgumentException: Unsupported interval type timeperiod",
-            "measureServer": "config/fhirconfig-default-tenant.json",
+            "measureServer": "tests/src/main/resources/config/fhirconfig-default-tenant.json",
             "regEx": true
         },
         "Over the Hill parameters test - Incompatible type value" : {
@@ -101,7 +101,7 @@
             "params": null,
             "targets": ["a1637d9d-8de4-b8b8-be2e-94118c7f4d71"],
             "response": "Exception in thread \"main\" java.time.format.DateTimeParseException: Text '2020/01/01T00:00:00.0:00.000Z' could not be parsed at index 4",
-            "measureServer": "config/fhirconfig-default-tenant.json",
+            "measureServer": "tests/src/main/resources/config/fhirconfig-default-tenant.json",
             "regEx": true
         },
         "Identifier Test": {
@@ -110,7 +110,7 @@
             "params": null,
             "targets": ["47c883bb-160a-7117-c5df-9344041ef048"],
             "response": "Evaluating: 47c883bb-160a-7117-c5df-9344041ef048\nResult for Measure/identifier-test-measure-1\nPopulation: initial-population = 1\n---\nResult for Measure/identifier-test-measure-2\nPopulation: initial-population = 1\n---",
-            "measureServer": "config/fhirconfig-default-tenant.json",
+            "measureServer": "tests/src/main/resources/config/fhirconfig-default-tenant.json",
             "regEx": false
         },
         "Identifier Test - Identifier and id for single message": {
@@ -119,7 +119,7 @@
             "params": null,
             "targets": ["47c883bb-160a-7117-c5df-9344041ef048"],
             "response": "Exception in thread \"main\" java.lang.IllegalArgumentException: Invalid measure parameter file: Exactly one of id or identifier with a value must be provided for each measure.",
-            "measureServer": "config/fhirconfig-default-tenant.json",
+            "measureServer": "tests/src/main/resources/config/fhirconfig-default-tenant.json",
             "regEx": true
         }
     }
