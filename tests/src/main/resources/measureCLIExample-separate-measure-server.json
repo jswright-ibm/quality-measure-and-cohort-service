@@ -47,7 +47,7 @@
             "params": null,
             "targets": ["a1637d9d-8de4-b8b8-be2e-94118c7f4d71"],
             "response": "Exception in thread \"main\" java.io.FileNotFoundException: tests/src/main/resources/measure-parameters (Is a directory)*",
-            "measureServer": "config/fhirconfig-default-tenant.json",
+            "measureServer": "tests/src/main/resources/config/fhirconfig-default-tenant.json",
             "regEx": true
         },
         "Over the Hill parameters test - Unexpected fields in json object" : {
