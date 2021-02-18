@@ -18,6 +18,7 @@ import com.ibm.cohort.engine.flink.KafkaInfo;
 import com.ibm.cohort.engine.flink.MeasureExecution;
 import com.ibm.cohort.engine.measure.MeasureContext;
 import com.ibm.cohort.engine.measure.MeasureEvaluator;
+import com.ibm.cohort.engine.measure.evidence.MeasureEvidenceOptions;
 import com.ibm.cohort.fhir.client.config.DefaultFhirClientBuilderFactory;
 import com.ibm.cohort.fhir.client.config.FhirClientBuilder;
 import com.ibm.cohort.fhir.client.config.FhirClientBuilderFactory;
@@ -33,6 +34,9 @@ import org.hl7.fhir.r4.model.MeasureReport;
 public class CohortEngineFlinkDriver implements Serializable {
 
 	private static final long serialVersionUID = 1966474691011266880L;
+
+	// Remove this when adding proper evidence support to the flink job
+	private static final MeasureEvidenceOptions NO_EVIDENCE_OPTIONS = new MeasureEvidenceOptions();
 
 	public static void main(String[] args) throws Exception {
 		ParameterTool params = ParameterTool.fromArgs(args);
@@ -137,7 +141,8 @@ public class CohortEngineFlinkDriver implements Serializable {
 
 		MeasureReport result = evaluator.evaluatePatientMeasure(
 				new MeasureContext(execution.getMeasureId()),
-				execution.getPatientId()
+				execution.getPatientId(),
+				NO_EVIDENCE_OPTIONS
 		);
 
 		FhirContext fhirContext = getFhirContext();
