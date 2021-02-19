@@ -26,7 +26,7 @@
 	</scm>
 
 	<properties>
-		<flink.version>1.11.2</flink.version>
+		<flink.version>1.12.1</flink.version>
 	</properties>
 
 	<dependencies>
