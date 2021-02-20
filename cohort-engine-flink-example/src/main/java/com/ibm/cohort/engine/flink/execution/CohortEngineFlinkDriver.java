@@ -24,7 +24,6 @@ import com.ibm.cohort.fhir.client.config.FhirClientBuilderFactory;
 import org.apache.flink.api.common.serialization.SimpleStringSchema;
 import org.apache.flink.api.java.utils.ParameterTool;
 import org.apache.flink.streaming.api.datastream.DataStream;
-import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer;
 import org.apache.flink.streaming.connectors.kafka.FlinkKafkaProducer;
@@ -105,9 +104,7 @@ public class CohortEngineFlinkDriver implements Serializable {
 		StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 		DataStream<String> stream = env.addSource(consumer);
 		if (rebalanceInput) {
-			// TODO: Remove `setParallelism()` once our cluster is actually configured right.
-			DataStreamSource<String> cast = (DataStreamSource<String>)stream;
-			stream = cast.setParallelism(1).rebalance();
+			stream = stream.rebalance();
 		}
 
 		stream = stream
