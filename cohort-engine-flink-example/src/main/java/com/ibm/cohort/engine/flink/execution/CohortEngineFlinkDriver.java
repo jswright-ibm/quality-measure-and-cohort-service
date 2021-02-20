@@ -12,7 +12,6 @@ import ca.uhn.fhir.context.FhirContext;
 import ca.uhn.fhir.parser.IParser;
 import ca.uhn.fhir.rest.client.api.IGenericClient;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.ibm.cohort.engine.InsecureFhirClientBuilderFactory;
 import com.ibm.cohort.engine.flink.KafkaCommon;
 import com.ibm.cohort.engine.flink.KafkaInfo;
 import com.ibm.cohort.engine.flink.MeasureExecution;
@@ -63,10 +62,7 @@ public class CohortEngineFlinkDriver implements Serializable {
 			);
 		}
 
-		CohortEngineFlinkDriver example = new CohortEngineFlinkDriver(
-				fhirServerInfo,
-				params.has("insecureHttpClient")
-		);
+		CohortEngineFlinkDriver example = new CohortEngineFlinkDriver(fhirServerInfo);
 		example.run(
 				params.get("jobName", "cohort-engine"),
 				params.getRequired("kafkaGroupId"),
@@ -79,15 +75,13 @@ public class CohortEngineFlinkDriver implements Serializable {
 	}
 
 	private final FHIRServerInfo fhirServerInfo;
-	private final boolean insecureHttpClient;
 
 	private transient MeasureEvaluator evaluator;
 	private transient FhirContext fhirContext;
 	private transient ObjectMapper objectMapper;
 
-	public CohortEngineFlinkDriver(FHIRServerInfo fhirServerInfo, boolean insecureHttpClient) {
+	public CohortEngineFlinkDriver(FHIRServerInfo fhirServerInfo) {
 		this.fhirServerInfo = fhirServerInfo;
-		this.insecureHttpClient = insecureHttpClient;
 	}
 
 	private void run(
@@ -173,9 +167,7 @@ public class CohortEngineFlinkDriver implements Serializable {
 	}
 
 	private MeasureEvaluator createEvaluator() {
-		FhirClientBuilderFactory factory = insecureHttpClient
-				? new InsecureFhirClientBuilderFactory()
-				: new DefaultFhirClientBuilderFactory();
+		FhirClientBuilderFactory factory = new DefaultFhirClientBuilderFactory();
 
 		FhirClientBuilder builder = factory.newFhirClientBuilder(getFhirContext());
 		IGenericClient genericClient = builder.createFhirClient(fhirServerInfo.toIbmServerConfig());
