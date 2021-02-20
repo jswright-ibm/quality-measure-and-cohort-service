@@ -51,8 +51,6 @@ The Flink job will run indefinitely until manually canceled.
 * `--fhirTenantId <ARG>`: The tenant on the FHIR server to query.
 
 * `--jobName <ARG>` (optional): The name of the submitted Flink Job.
-* `--insecureHttpClient` (optional): Use an insecure HTTPS client when connecting to the FHIR server.
-    * __DO NOT USE WITH PRODUCTION DATA__
 * `--printOutputToConsole` (optional): Log the MeasureReports to standard out.
 * `--rebalanceInput` (optional): Perform a `rebalance` operation after reading the input records from Kafka.
     * Useful if you want to scale your compute tasks separately from your Kafka topic partitions.
